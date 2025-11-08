@@ -9,6 +9,8 @@ public class Pessoa {
 	private int idade;
 	private Date dataNascimento;
 	
+	private String email;
+	
 	public int getIdade() {
 		return idade;
 	}
@@ -39,6 +41,14 @@ public class Pessoa {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	
