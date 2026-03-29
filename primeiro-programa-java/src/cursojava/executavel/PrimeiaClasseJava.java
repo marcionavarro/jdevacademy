@@ -2,34 +2,66 @@ package cursojava.executavel;
 
 import javax.swing.JOptionPane;
 
+import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
+
 public class PrimeiaClasseJava {
 
 	/* Main é um metodo auto executavel em Java */
 	public static void main(String[] args) {
 
-		String nota1 = JOptionPane.showInputDialog("Informe a nota 1");
-		String nota2 = JOptionPane.showInputDialog("Informe a nota 2");
-		String nota3 = JOptionPane.showInputDialog("Informe a nota 3");
-		String nota4 = JOptionPane.showInputDialog("Informe a nota 4");
+		/* new Aluno() é uma instancia (Criação de Objeto) */
+		/* aluno1 é uma referencia para o objeto aluno */
+
+		String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
+		String idade = JOptionPane.showInputDialog("Qual a idade?");
+		String dataNascimento = JOptionPane.showInputDialog("Data de nascimento?");
+		String rg = JOptionPane.showInputDialog("Documento de RG");
+		String cpf = JOptionPane.showInputDialog("Documento de CPF");
+		String nomeMae = JOptionPane.showInputDialog("Nome da mãe?");
+		String nomePai = JOptionPane.showInputDialog("Nome do pai?");
+		String dataMatricula = JOptionPane.showInputDialog("Data da matricula?");
+		String serieMatriculado = JOptionPane.showInputDialog("Qual a serie?");
+		String escola = JOptionPane.showInputDialog("Nome da escola?");
+
+		Aluno aluno1 = new Aluno();
+
+		aluno1.setNome(nome);
+		aluno1.setIdade(Integer.valueOf(idade));
+		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setRegistroGeral(rg);
+		aluno1.setNumeroCpf(cpf);
+		aluno1.setNomeMae(nomeMae);
+		aluno1.setNomePai(nomePai);
+		aluno1.setDataMatricula(dataMatricula);
+		aluno1.setSerieMatriculado(serieMatriculado);
+		aluno1.setNomeEscola(escola);
 		
-		double dNota1 = Double.parseDouble(nota1);
-		double dNota2 = Double.parseDouble(nota2);
-		double dNota3 = Double.parseDouble(nota3);
-		double dNota4 = Double.parseDouble(nota4);
+		Disciplina disciplina1 = new Disciplina();
+		disciplina1.setDisciplina("Banco de dados");
+		disciplina1.setNota(90);
 		
-		double media = (dNota1 + dNota2 + dNota3 + dNota4) / 4;
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Matemarica");
+		disciplina2.setNota(80);
 		
-		/* Média para aprovação é 70 */
+		Disciplina disciplina3 = new Disciplina();
+		disciplina3.setDisciplina("Geografia");
+		disciplina3.setNota(97);
 		
-		if(media >= 50) {
-			if(media >= 70) {
-				JOptionPane.showMessageDialog(null, "Aluno está aprovado com média de: " + media);
-			} else {
-				JOptionPane.showMessageDialog(null, "Aluno está de recuperação com média de: " + media);
-			}
-		} else {
-			JOptionPane.showMessageDialog(null, "Aluno está reprovado com média de: " + media);
-		}
+		Disciplina disciplina4 = new Disciplina();
+		disciplina4.setDisciplina("Geografia");
+		disciplina4.setNota(97);
+		
+		aluno1.getDisciplinas().add(disciplina1);
+		aluno1.getDisciplinas().add(disciplina2);
+		aluno1.getDisciplinas().add(disciplina3);
+		aluno1.getDisciplinas().add(disciplina4);
+		
+
+		System.out.println(aluno1.toString());/* Descrição do objeto na memoria */
+		System.out.println("Média do aluno 1 = " + aluno1.getMediaNota());
+		System.out.println("Resultado do aluno 1 = " + aluno1.getAlunoAprovado2());
 
 	}
 
