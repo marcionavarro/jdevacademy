@@ -153,6 +153,15 @@ public class Aluno extends Pessoa {
 		}
 	}
 
+	@Override /* Identifica metodo sobreescrito */
+	public boolean pessoaMaiorIdade() {
+		return idade >= 21;
+	}
+
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Maior de Idade" : "Menor de Idade";
+	}
+
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
@@ -176,6 +185,11 @@ public class Aluno extends Pessoa {
 			return false;
 		Aluno other = (Aluno) obj;
 		return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
+	}
+
+	@Override
+	public double salario() {
+		return 1500.00;
 	}
 
 }

@@ -7,8 +7,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.constantes.StatusAluno;
+import cusro.java.classesauxiliares.FuncaoAutenticacao;
 
 public class PrimeiaClasseJava {
 
@@ -21,7 +23,11 @@ public class PrimeiaClasseJava {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 
-		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin123")) {
+		if (new FuncaoAutenticacao(new Diretor(login, senha))
+				.autenticar()) { /*
+									 * Vou travar o contrato para autorizar somente quem realmente tem o contrato
+									 * 100% legitimo
+									 */
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
@@ -123,6 +129,8 @@ public class PrimeiaClasseJava {
 				System.out.println("Aluno " + aluno.getNome() + " Resultado = " + aluno.getAlunoAprovado2()
 						+ " com média e  = " + aluno.getMediaNota());
 			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
 		}
 	}
 
